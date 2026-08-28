@@ -1,6 +1,10 @@
 import java.util.List;
 
-/** คำสั่งซื้อหนึ่งใบ (Part 1) */
+/** คำสั่งซื้อหนึ่งใบ (Part 1)
+ * oderId เลขบิล
+ * products ออเดอร์สินค้า
+ * customerEmail อีเมล์ลูกค้า
+ */
 public record Order(String orderId, List<Product> products, String customerEmail) {
     /** ผลรวมราคาสินค้าทุกชิ้น (ก่อนหักส่วนลด) */
     public double getTotalPrice() {
@@ -8,6 +12,9 @@ public record Order(String orderId, List<Product> products, String customerEmail
         // TODO (1a): วนลูป products แล้วบวก p.price() เข้า sum
         //   hint: for (Product p : products) sum += p.price();
         /* ====== fill in here ====== */
+        for(Product p : products){
+            sum += p.price();
+        }
         return sum;
     }
 }

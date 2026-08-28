@@ -13,7 +13,9 @@ public class ShipmentFactory {
             //   hint: case "STANDARD" -> new StandardShipment();
             /* ====== fill in the two cases here ====== */
             // TODO (3c): type อื่น -> throw IllegalArgumentException("unknown shipment type: " + type)
-            default -> /* ====== replace this ====== */ null;
+            case "STANDARD" -> new StandardShipment();
+            case "EXPRESS" -> new ExpressShipment();
+            default -> throw new IllegalArgumentException();
         };
     }
 }
